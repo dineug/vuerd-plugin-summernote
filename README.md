@@ -56,6 +56,6 @@ export interface Option {
 | imageUpload | function | base64 | image upload |
 | scope | [String \| RegExp] | ["rich"] | file designation(string extension) |
 | exclude | [String \| RegExp] |  | exception file designation(string extension) |
-
+ 
 ## License
 [MIT](https://github.com/vuerd/vuerd-plugin-summernote/blob/master/LICENSE)
