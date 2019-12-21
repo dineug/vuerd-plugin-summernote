@@ -58,4 +58,4 @@ export interface Option {
 | exclude | [String \| RegExp] |  | exception file designation(string extension) |
 
 ## License
-[MIT](https://github.com/vuerd/vuerd-plugin-tui.editor/blob/master/LICENSE)
+[MIT](https://github.com/vuerd/vuerd-plugin-summernote/blob/master/LICENSE)
