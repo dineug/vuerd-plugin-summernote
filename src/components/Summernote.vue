@@ -10,6 +10,8 @@ import { Subject, Subscription } from "rxjs";
 import { debounceTime } from "rxjs/operators";
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
+const TOOLBAR_HEIGHT = 43;
+
 interface Callbacks {
   onChange(value: string): void;
   onImageUpload?(files: File[]): void;
@@ -61,7 +63,7 @@ export default class Summernote extends Vue {
       };
     }
     this.$editor.summernote({
-      height: this.height,
+      height: this.height - TOOLBAR_HEIGHT,
       tabsize: 2,
       callbacks
     });
