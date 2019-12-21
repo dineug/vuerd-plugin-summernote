@@ -1,0 +1,53 @@
+{
+  "name": "vuerd-plugin-summernote",
+  "version": "0.1.0",
+  "description": "vuerd-core plugin summernote",
+  "main": "dist/vuerd-plugin-summernote.common.js",
+  "typings": "src/types/index.d.ts",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --target lib --name vuerd-plugin-summernote src/components/index.ts",
+    "lint": "vue-cli-service lint"
+  },
+  "author": "dineug <dineug2@gmail.com>",
+  "homepage": "https://github.com/vuerd/vuerd-plugin-summernote",
+  "bugs": "https://github.com/vuerd/vuerd-plugin-summernote/issues",
+  "repository": "https://github.com/vuerd/vuerd-plugin-summernote.git",
+  "license": "MIT",
+  "dependencies": {
+    "core-js": "^3.4.3",
+    "jquery": "^3.4.1",
+    "rxjs": "^6.5.3",
+    "summernote": "^0.8.12",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.3.0",
+    "vuerd-core": "^0.4.4"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.31",
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-plugin-typescript": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "prettier": "^1.19.1",
+    "typescript": "~3.5.3",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "files": [
+    "dist/*",
+    "src/types/*"
+  ],
+  "keywords": [
+    "vue",
+    "vuejs",
+    "vuerd",
+    "editor",
+    "vuerd plugin"
+  ]
+}
