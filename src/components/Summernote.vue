@@ -54,9 +54,7 @@ export default class Summernote extends Vue {
     if (this.imageUpload && typeof this.imageUpload === "function") {
       callbacks.onImageUpload = (files: File[]) => {
         if (this.imageUpload) {
-          const reFiles: File[] = [];
-          Array.from(files).forEach(file => reFiles.push(file));
-          this.imageUpload(reFiles, url => {
+          this.imageUpload(Array.from(files), url => {
             this.$editor.summernote("editor.insertImage", url);
           });
         }
