@@ -8066,10 +8066,10 @@ vue@^2.6.10:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
 
-vuerd-core@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/vuerd-core/-/vuerd-core-0.4.4.tgz#49b7ed8f66b4e3067dcb18bce3108b7435a5f8d0"
-  integrity sha512-WzDA91kgakVZ1AuhQ/1EqOm1UEe/euItZVU8AoI2LXnRgCprNGCbOGvrgTy6MokeBSKUrDismls1uyzocjWrCg==
+vuerd-core@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/vuerd-core/-/vuerd-core-0.4.9.tgz#5f3932b036b4c58d0a7fdc61ccd68606254d9cc0"
+  integrity sha512-RcamFQXO1Xm0eflCZna994WA6OJd35RWDbFQW1sRzbTe+Pf7bTklB1vN6bvL5GkoFSm74TZc9Y+y3mKa+EsTjw==
   dependencies:
     "@tweenjs/tween.js" "^18.4.2"
     core-js "^3.4.8"
