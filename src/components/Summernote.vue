@@ -17,7 +17,9 @@ interface Callbacks {
   onImageUpload?(files: File[]): void;
 }
 
-@Component
+@Component({
+  name: "Summernote"
+})
 export default class Summernote extends Vue {
   @Prop({ type: Number, default: 0 })
   private height!: number;
@@ -39,6 +41,7 @@ export default class Summernote extends Vue {
   @Watch("value")
   private watchValue(value: string) {
     if (this.currentValue !== value) {
+      this.currentValue = value;
       this.$editor.summernote("code", value);
     }
   }

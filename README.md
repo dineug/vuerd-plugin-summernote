@@ -42,6 +42,34 @@ Vue.use(VuerdCore);
 ```html
 <VuerdCore/>
 ```
+## CDN Quick Start
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>vuerd-core demo</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/vuerd-core/dist/vuerd-core.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/vuerd-plugin-summernote/dist/vuerd-plugin-summernote.css">
+</head>
+<body>
+  <div id="app">
+    <vuerd-core />
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuerd-core/dist/vuerd-core.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuerd-plugin-summernote/dist/vuerd-plugin-summernote.umd.min.js"></script>
+  <script>
+    const VuerdCore = window['vuerd-core'].default
+    const Summernote = window['vuerd-plugin-summernote'].default
+    VuerdCore.use(Summernote)
+    Vue.use(VuerdCore)
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+</html>
+```
 ## Option interface
 ```typescript
 export interface Option {
