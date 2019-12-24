@@ -40,7 +40,7 @@ VuerdCore.use(
 Vue.use(VuerdCore);
 ```
 ```html
-<VuerdCore/>
+<vuerd-core />
 ```
 ## CDN Quick Start
 ```html
