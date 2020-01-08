@@ -50,9 +50,5 @@ VuerdCore.use({
   }
 });
 
-VuerdCore.use(Summernote, {
-  imageUpload(files, callback) {
-    files.forEach(file => callback(URL.createObjectURL(file)));
-  }
-});
+VuerdCore.use(Summernote);
 Vue.use(VuerdCore);

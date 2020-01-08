@@ -76,7 +76,31 @@ export interface Option {
   imageUpload?: (files: File[], callback: (url: string) => void) => void;
   scope?: string[] | RegExp[];
   exclude?: string[] | RegExp[];
+  editorOption?: EditorOption;
 }
+
+export interface EditorOption {
+  tabsize?: number;
+  toolbar?: [string, Toolbar[]][] | boolean;
+}
+
+export type Toolbar =
+  | "style"
+  | "bold"
+  | "underline"
+  | "clear"
+  | "fontname"
+  | "color"
+  | "ul"
+  | "ol"
+  | "paragraph"
+  | "table"
+  | "link"
+  | "picture"
+  | "video"
+  | "fullscreen"
+  | "codeview"
+  | "help";
 ```
 ## Option
 | Name | Type | Default | Describe |
@@ -84,6 +108,24 @@ export interface Option {
 | imageUpload | function | base64 | image upload |
 | scope | [String \| RegExp] | ["rich"] | file designation(string extension) |
 | exclude | [String \| RegExp] |  | exception file designation(string extension) |
+| editorOption | EditorOption | default option | summernote option |
+
+## default EditorOption
+```javascript
+editorOption = {
+    tabsize: 2,
+    toolbar: [
+        ["style", ["style"]],
+        ["font", ["bold", "underline", "clear"]],
+        ["fontname", ["fontname"]],
+        ["color", ["color"]],
+        ["para", ["ul", "ol", "paragraph"]],
+        ["table", ["table"]],
+        ["insert", ["link", "picture", "video"]],
+        ["view", ["fullscreen", "codeview", "help"]]
+    ]
+};
+```
 
 ## License
 [MIT](https://github.com/vuerd/vuerd-plugin-summernote/blob/master/LICENSE)

@@ -8,6 +8,7 @@ import "summernote/dist/summernote-lite.min";
 import $ from "jquery";
 import { Subject, Subscription } from "rxjs";
 import { debounceTime } from "rxjs/operators";
+import { EditorOption } from "@/types";
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
 const TOOLBAR_HEIGHT = 43;
@@ -16,6 +17,11 @@ interface Callbacks {
   onChange(value: string): void;
   onImageUpload?(files: File[]): void;
 }
+
+const optionKeys = ["tabsize", "toolbar"];
+
+let emojis: string[] = [];
+let emojiUrls: any = [];
 
 @Component({
   name: "Summernote"
@@ -29,6 +35,7 @@ export default class Summernote extends Vue {
   private $editor!: any;
   private currentValue: string = "";
   public imageUpload?: (files: File[], callback: (url: string) => void) => void;
+  public option?: EditorOption;
 
   private height$: Subject<void> = new Subject();
   private subHeight!: Subscription;
@@ -63,7 +70,7 @@ export default class Summernote extends Vue {
         }
       };
     }
-    this.$editor.summernote({
+    const editorOption = {
       height: this.height - TOOLBAR_HEIGHT,
       tabsize: 2,
       toolbar: [
@@ -74,10 +81,42 @@ export default class Summernote extends Vue {
         ["para", ["ul", "ol", "paragraph"]],
         ["table", ["table"]],
         ["insert", ["link", "picture", "video"]],
-        ["view", ["codeview", "help"]]
+        ["view", ["fullscreen", "codeview", "help"]]
       ],
+      hint: {
+        match: /:([\-+\w]+)$/,
+        search(keyword: string, callback: (fn: any) => void) {
+          callback(
+            $.grep(emojis, function(item) {
+              return item.indexOf(keyword) === 0;
+            })
+          );
+        },
+        template(item: string) {
+          const content = emojiUrls[item];
+          return '<img src="' + content + '" width="20" /> :' + item + ":";
+        },
+        content(item: string) {
+          const url = emojiUrls[item];
+          if (url) {
+            return $("<img />")
+              .attr("src", url)
+              .css("width", 20)[0];
+          }
+          return "";
+        }
+      },
       callbacks
-    });
+    } as any;
+    if (this.option) {
+      optionKeys.forEach(key => {
+        const option = this.option as any;
+        if (option[key] !== undefined) {
+          editorOption[key] = option[key];
+        }
+      });
+    }
+    this.$editor.summernote(editorOption);
     this.$editor.summernote("code", this.value);
   }
 
@@ -87,8 +126,17 @@ export default class Summernote extends Vue {
   }
 
   private created() {
+    if (emojis.length === 0) {
+      $.ajax({
+        url: "https://api.github.com/emojis",
+        async: false
+      }).then(function(data) {
+        emojis = Object.keys(data);
+        emojiUrls = data;
+      });
+    }
     this.subHeight = this.height$
-      .pipe(debounceTime(300))
+      .pipe(debounceTime(100))
       .subscribe(this.onHeight);
   }
 
