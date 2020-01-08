@@ -70,7 +70,7 @@ export default class Summernote extends Vue {
         }
       };
     }
-    const editorOption = {
+    const editorOption: any = {
       height: this.height - TOOLBAR_HEIGHT,
       tabsize: 2,
       toolbar: [
@@ -107,7 +107,7 @@ export default class Summernote extends Vue {
         }
       },
       callbacks
-    } as any;
+    };
     if (this.option) {
       optionKeys.forEach(key => {
         const option = this.option as any;
